@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Scatter Charts</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
+</head>
+<body>
+    <div style="display: flex;">
+        <div style="width: 50%; margin-right: 20px;">
+            <canvas id="scatterChart1" aria-label="chart" height="500" width="400"></canvas>
+        </div>
+        <div style="width: 50%;">
+            <canvas id="scatterChart2" aria-label="chart" height="500" width="400"></canvas>
+        </div>
+        <div style="width: 50%; margin-right: 20px;">
+            <canvas id="scatterChart3" aria-label="chart" height="500" width="400"></canvas>
+        </div>
+    </div>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    // 리스트를 받아올 객체 배열입니다
+    var resultList = /*[[${resultList}]]*/ [];
+    // Scatter Chart 1
+    var ctx1 = document.getElementById("scatterChart1").getContext("2d");
+    var scatterChart1 = new Chart(ctx1, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: "Sample Dataset 1",
+                data: [
+                    {x: 12, y: 14},
+                    {x: 18, y: 18},
+                    {x: 21, y: 30},
+                    {x: 28, y: 28},
+                    {x: 25, y: 10},
+                    {x: 17, y: 10},
+                ],
+                backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
+                borderColor: ['black'],
+                radius: 8,
+            }]
+        },
+        options: {
+            responsive: false,
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+
+    // Scatter Chart 2
+    var ctx2 = document.getElementById("scatterChart2").getContext("2d");
+    var scatterChart2 = new Chart(ctx2, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: "Sample Dataset 2",
+                data: [
+                    {x: 10, y: 14},
+                    {x: 25, y: 35},
+                    {x: 21, y: 20},
+                    {x: 35, y: 28},
+                    {x: 15, y: 10},
+                    {x: 19, y: 30},
+                ],
+                backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
+                borderColor: ['black'],
+                radius: 8,
+            }]
+        },
+        options: {
+            responsive: false,
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+    // Scatter Chart 3
+    var ctx3 = document.getElementById("scatterChart3").getContext("2d");
+    var scatterChart2 = new Chart(ctx3, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: "Sample Dataset 3",
+                data: [
+                    {x: 11, y: 14},
+                    {x: 23, y: 35},
+                    {x: 20, y: 20},
+                    {x: 36, y: 28},
+                    {x: 17, y: 10},
+                    {x: 18, y: 30},
+                ],
+                backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
+                borderColor: ['black'],
+                radius: 8,
+            }]
+        },
+        options: {
+            responsive: false,
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+/*]]>*/
+</script>
+</body>
+</html>

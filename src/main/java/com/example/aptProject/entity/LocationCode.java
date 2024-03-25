@@ -2,13 +2,17 @@ package com.example.aptProject.entity;
 
 public class LocationCode {
     private int lCode;
-    private String lName;
+    private String firstName;
+    private String secondName;
+    private String lastName;
 
     @Override
     public String toString() {
         return "LocationCode{" +
                 "lCode=" + lCode +
-                ", lName='" + lName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 
@@ -20,19 +24,37 @@ public class LocationCode {
         this.lCode = lCode;
     }
 
-    public String getlName() {
-        return lName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setlName(String lName) {
-        this.lName = lName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSecondName() {
+        return secondName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public LocationCode() {
     }
 
-    public LocationCode(int lCode, String lName) {
+    public LocationCode(int lCode, String firstName, String secondName, String lastName) {
         this.lCode = lCode;
-        this.lName = lName;
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.lastName = lastName;
     }
 }

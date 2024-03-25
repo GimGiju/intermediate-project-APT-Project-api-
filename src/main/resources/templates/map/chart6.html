@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Scatter Charts</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.1/chart.min.js"></script>
+</head>
+<body>
+    <div style="display: flex;">
+        <div style="width: 50%; margin-right: 20px;">
+            <canvas id="scatterChart1" aria-label="chart" height="500" width="400"></canvas>
+        </div>
+        <div style="width: 50%;">
+            <canvas id="scatterChart2" aria-label="chart" height="500" width="400"></canvas>
+        </div>
+        <div style="width: 50%; margin-right: 20px;">
+            <canvas id="scatterChart3" aria-label="chart" height="500" width="400"></canvas>
+        </div>
+    </div>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    // 리스트를 받아올 객체 배열입니다
+    var resultList = /*[[${resultList}]]*/ [];
+
+    // Scatter Chart 1
+    var ctx1 = document.getElementById("scatterChart1").getContext("2d");
+    var scatterChart1 = new Chart(ctx1, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: "Sample Dataset 1",
+                data: resultList.map(item => ({ x: parseInt(item.년), y: parseFloat(item.거래금액.replace(",", "")), backgroundColor: getColor(item.전용면적) })),
+                radius: 8,
+            }]
+        },
+        options: {
+            responsive: false,
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+
+    // Scatter Chart 2
+    var ctx2 = document.getElementById("scatterChart2").getContext("2d");
+    var scatterChart2 = new Chart(ctx2, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: "Sample Dataset 2",
+                data: resultList.map(item => ({ x: parseInt(item.년), y: parseFloat(item.거래금액.replace(",", "")), backgroundColor: getColor(item.전용면적) })),
+                radius: 8,
+            }]
+        },
+        options: {
+            responsive: false,
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+
+    // Scatter Chart 3
+    var ctx3 = document.getElementById("scatterChart3").getContext("2d");
+    var scatterChart3 = new Chart(ctx3, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: "Sample Dataset 3",
+                data: resultList.map(item => ({ x: parseInt(item.년), y: parseFloat(item.거래금액.replace(",", "")), backgroundColor: getColor(item.전용면적) })),
+                radius: 8,
+            }]
+        },
+        options: {
+            responsive: false,
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+
+    // 함수: 전용면적에 따른 색상 반환
+    function getColor(전용면적) {
+        switch (전용면적) {
+            case "전용면적1":
+                return 'yellow';
+            case "전용면적2":
+                return 'aqua';
+            case "전용면적3":
+                return 'pink';
+            case "전용면적4":
+                return 'lightgreen';
+            case "전용면적5":
+                return 'gold';
+            case "전용면적6":
+                return 'lightblue';
+            default:
+                return 'black'; // 기본 색상
+        }
+    }
+    /*]]>*/
+</script>
+</body>
+</html>

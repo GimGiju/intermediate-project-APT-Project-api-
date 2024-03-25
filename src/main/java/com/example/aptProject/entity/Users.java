@@ -22,6 +22,13 @@ public class Users {
                 '}';
     }
 
+    public Users(String uid, String pwd, String uname, String email) {
+        this.uid = uid;
+        this.pwd = pwd;
+        this.uname = uname;
+        this.email = email;
+    }
+
     public String getUid() {
         return uid;
     }
